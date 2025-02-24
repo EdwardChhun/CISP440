@@ -1,6 +1,8 @@
 # Sources: https://www.youtube.com/watch?v=Qej8V1M1e2A
 #          https://en.wikipedia.org/wiki/Josephus_problem#The_general_case
 
+import math
+
 def foo(n, k) -> int:
     
     # Base Case
@@ -34,6 +36,10 @@ def bar(arr) -> int:
     arr.append(arr.pop(0))
     return (int(''.join(map(str, arr)), 2))
 
+# THE ACTUAL IMPLEMENTATION USING A LOGARITHMIC APPROACH
+def qux(n) -> int:
+    l = n - 2 ** int(math.log2(n))
+    return 2 * l + 1
 
 # Main
 n = [10, 30, 86]
@@ -43,4 +49,5 @@ for i in range(3):
 
 # Second part
 n = 1531502
-print(f"N = {n} K = 2 Stand at pos #{bar(num_to_binary_list(n))}")
+print(f"N = {n} K = 2 Stand at pos #{qux(n)}")
+# print(f"N = {n} K = 2 Stand at pos #{bar(num_to_binary_list(n))}")
